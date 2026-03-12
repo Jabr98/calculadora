@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         txtResultado = findViewById(R.id.txtResultado);
 
-        // SUMA (tu parte)
+        // SUMA 
         btnSumar.setOnClickListener(v -> {
 
             int n1 = Integer.parseInt(num1.getText().toString());
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        // RESTA (tu parte)
+        // RESTA 
         btnRestar.setOnClickListener(v -> {
 
             int n1 = Integer.parseInt(num1.getText().toString());
@@ -52,6 +52,33 @@ public class MainActivity extends AppCompatActivity {
             txtResultado.setText("Resultado: " + resultado);
 
         });
+
+        // MULTIPLICACIÓN
+btnMultiplicar.setOnClickListener(v -> {
+
+    int n1 = Integer.parseInt(num1.getText().toString());
+    int n2 = Integer.parseInt(num2.getText().toString());
+
+    int resultado = n1 * n2;
+
+    txtResultado.setText("Resultado: " + resultado);
+
+});
+
+// DIVISIÓN 
+btnDividir.setOnClickListener(v -> {
+
+    int n1 = Integer.parseInt(num1.getText().toString());
+    int n2 = Integer.parseInt(num2.getText().toString());
+
+    if(n2 == 0){
+        txtResultado.setText("No se puede dividir por 0");
+    } else {
+        int resultado = n1 / n2;
+        txtResultado.setText("Resultado: " + resultado);
+    }
+
+});
 
     }
 }
