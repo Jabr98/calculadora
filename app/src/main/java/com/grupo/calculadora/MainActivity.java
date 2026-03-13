@@ -54,31 +54,45 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // MULTIPLICACIÓN
-btnMultiplicar.setOnClickListener(v -> {
+        btnMultiplicar.setOnClickListener(v -> {
 
-    int n1 = Integer.parseInt(num1.getText().toString());
-    int n2 = Integer.parseInt(num2.getText().toString());
+            if (num1.getText().toString().isEmpty() || num2.getText().toString().isEmpty()) {
+                txtResultado.setText("Por favor ingresa ambos números");
+                return;
+            }
 
-    int resultado = n1 * n2;
+            double n1 = Double.parseDouble(num1.getText().toString());
+            double n2 = Double.parseDouble(num2.getText().toString());
 
-    txtResultado.setText("Resultado: " + resultado);
+            double resultado = n1 * n2;
 
-});
+            txtResultado.setText("Resultado: " + resultado);
 
-// DIVISIÓN 
-btnDividir.setOnClickListener(v -> {
+        });
 
-    int n1 = Integer.parseInt(num1.getText().toString());
-    int n2 = Integer.parseInt(num2.getText().toString());
 
-    if(n2 == 0){
-        txtResultado.setText("No se puede dividir por 0");
-    } else {
-        int resultado = n1 / n2;
-        txtResultado.setText("Resultado: " + resultado);
-    }
+// DIVISIÓN
+        btnDividir.setOnClickListener(v -> {
 
-});
+            if (num1.getText().toString().isEmpty() || num2.getText().toString().isEmpty()) {
+                txtResultado.setText("Por favor ingresa ambos números");
+                return;
+            }
+
+            double n1 = Double.parseDouble(num1.getText().toString());
+            double n2 = Double.parseDouble(num2.getText().toString());
+
+            if (n2 == 0) {
+                txtResultado.setText("No se puede dividir por 0");
+            } else {
+
+                double resultado = n1 / n2;
+
+                txtResultado.setText("Resultado: " + resultado);
+            }
+
+        });
+
 
     }
 }
